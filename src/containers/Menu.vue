@@ -19,13 +19,13 @@ export default {
         :class="{ 'header_buttons_button--active': selectedTab === 'clientes' }"
         @click="changeTab('clientes')"
         class="header_buttons_button" >
-        Cliente
+        Clientes
       </button>
       <button
         :class="{ 'header_buttons_button--active': selectedTab === 'produtos' }"
         @click="changeTab('produtos')"
         class="header_buttons_button">
-        Produto
+        Produtos
       </button>
     </div>
   </div>

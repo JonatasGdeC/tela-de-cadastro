@@ -37,11 +37,11 @@ export default {
         <form>
             <div class="form_campo">
                 <label class="form_campo_nome" for="name">Nome:</label>
-                <input class="form_campo_input" v-model="nome" id="name" type="text" minlength="3" maxlength="20">
+                <input class="form_campo_input" v-model="nome" id="name" type="text" minlength="3" maxlength="50">
             </div>
             <div class="form_campo">
                 <label class="form_campo_nome" for="cpf">CPF:</label>
-                <input class="form_campo_input" v-model="cpf" id="cpf" type="number" placeholder="XXX.XXX.XXX-XX" maxlength="11">
+                <input class="form_campo_input" v-model="cpf" id="cpf" type="number" placeholder="XXX.XXX.XXX-XX">
             </div>
             <div class="form_campo">
                 <label class="form_campo_nome" for="contato">Contato:</label>

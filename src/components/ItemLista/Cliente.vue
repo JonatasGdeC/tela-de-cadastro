@@ -5,6 +5,12 @@ export default {
     props: {
         cliente: Object,
     },
+
+    methods: {
+        excluirCliente() {
+            this.$emit('excluir-cliente', this.cliente);
+        }
+    }
 };
 
 </script>
@@ -50,6 +56,8 @@ export default {
         <ul>
             <li>Produto A</li>
         </ul>
+
+        <button @click="excluirCliente">Excluir Cliente</button>
     </div>
     </section>
 </template>
