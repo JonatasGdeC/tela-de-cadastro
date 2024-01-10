@@ -25,7 +25,7 @@ export default {
 
 <template>
     <Menu :selectedTab="selectedTab" @changeTab="changeTab" />
-    <div>
+    <div class="container">
         <Clientes v-if="selectedTab === 'clientes'" />
         <Produtos v-else-if="selectedTab === 'produtos'" />
     </div>

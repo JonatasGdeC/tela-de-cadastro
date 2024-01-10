@@ -14,7 +14,6 @@ export default {
 
 <template>
   <div class="header">
-    
     <div class="header_buttons">
       <button
         :class="{ 'header_buttons_button--active': selectedTab === 'clientes' }"
