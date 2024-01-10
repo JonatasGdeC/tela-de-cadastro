@@ -10,16 +10,23 @@ export default {
         return {
         mostrarFormulario: false,
         clientes: [],
+        mensagemBTN: 'Cadastrar'
         };
     },
     methods: {
-        abrirFormulario() {
-            this.mostrarFormulario = true;
+        btnPrincipal(){
+            if(this.mostrarFormulario === false){
+                this.mostrarFormulario = true
+                this.mensagemBTN = 'Cancelar'
+            } else {
+                this.mostrarFormulario = false
+                this.mensagemBTN = 'Cadastrar'
+            }
         },
         cadastrarCliente(cliente) {
-            console.log('Cliente cadastrado:', cliente)
             this.clientes.push(cliente);
             this.mostrarFormulario = false;
+            this.mensagemBTN = 'Cadastrar'
         },
     },
     components: {
@@ -30,7 +37,7 @@ export default {
 </script>
 
 <template>
-    <button @click="abrirFormulario()" class="btn-cadastrar">Cadastrar novo cliente</button>
+    <button @click="btnPrincipal" class="btn-cadastrar" :class="{'btn-cadastrar--cancelar': mensagemBTN === 'Cancelar'}">{{ mensagemBTN }}</button>
     <FormCliente v-if="mostrarFormulario" @cadastrar="cadastrarCliente" />
     <ul class="list">
         <li class="list_item">

@@ -1,4 +1,6 @@
 <script>
+import './styles.scss'
+
 export default {
     data() {
         return {
@@ -17,30 +19,40 @@ export default {
                 email: this.email,
             };
 
-            console.log('Emitindo evento cadastrar:', dadosCliente);
-            
-            this.$emit('cadastrar', dadosCliente);
-            this.nome = '';
-            this.cpf = '';
-            this.telefone = '';
-            this.email = '';
-            },
+            const verificando = () =>{
+                this.nome.length < 3 ? alert('O nome do cliente deve conter de 3 a 20 caracteres...') :
+                this.cpf.length < 11 ? alert('CPF do cliente deve conter 11 números...'):
+                this.telefone.length < 11 ? alert('Digite um número de celular com DDD...'):
+                this.$emit('cadastrar', dadosCliente);
+            }
+            verificando()
         },
-    };
+        
+    },
+};
 </script>
 
 <template>
-    <h3>Cadastro de cliente:</h3>
-    <form>
-        <label for="name">Nome:</label>
-        <input v-model="nome" id="name" type="text">
-        <label for="cpf">CPF:</label>
-        <input v-model="cpf" id="cpf" type="number">
-        <label for="contato">Contato:</label>
-        <input v-model="telefone" id="contato" type="tel">
-        <label for="email">Email:</label>
-        <input v-model="email" id="email" type="email">
-    </form>
-    <button @click="cadastrar">Cadastrar</button>
-    <button>Cancelar</button>
+    <div class="form">
+        <form>
+            <div class="form_campo">
+                <label class="form_campo_nome" for="name">Nome:</label>
+                <input class="form_campo_input" v-model="nome" id="name" type="text" minlength="3" maxlength="20">
+            </div>
+            <div class="form_campo">
+                <label class="form_campo_nome" for="cpf">CPF:</label>
+                <input class="form_campo_input" v-model="cpf" id="cpf" type="number" placeholder="XXX.XXX.XXX-XX" maxlength="11">
+            </div>
+            <div class="form_campo">
+                <label class="form_campo_nome" for="contato">Contato:</label>
+                <input class="form_campo_input" v-model="telefone" id="contato" type="tel" placeholder="(XX) XXXXX-XXXX" maxlength="11">
+            </div>
+            <div class="form_campo">
+                <label class="form_campo_nome" for="email">Email:</label>
+                <input class="form_campo_input" v-model="email" id="email" type="email">
+            </div>
+        </form>
+        <button class="form_button" @click="cadastrar">Cadastrar</button>
+
+    </div>
 </template>
