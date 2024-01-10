@@ -1,7 +1,7 @@
 <script>
-import Menu from './containers/Menu/index.vue'
-import Clientes from './containers/Clientes/index.vue'
-import Produtos from './containers/Produtos/index.vue'
+import Menu from './containers/Menu.vue'
+import Clientes from './containers/Clientes.vue'
+import Produtos from './containers/Produtos.vue'
 
 export default {
     data() {

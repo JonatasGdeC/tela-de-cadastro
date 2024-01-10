@@ -51,6 +51,13 @@ export default {
                 <label class="form_campo_nome" for="email">Email:</label>
                 <input class="form_campo_input" v-model="email" id="email" type="email">
             </div>
+            <div class="form_campo">
+                <label class="form_campo_nome" for="ativo">Ativo?</label>
+                <select class="form_campo_input" id="ativo">
+                    <option>Sim</option>
+                    <option>Não</option>
+                </select>
+            </div>
         </form>
         <button class="form_button" @click="cadastrar">Cadastrar</button>
 

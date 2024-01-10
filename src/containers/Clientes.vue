@@ -1,7 +1,7 @@
 <script>
 import './styles.scss'
-import ItemLista from '../../components/ItemListaCliente/index.vue'
-import FormCliente from '../../components/FormCadastroCliente/index.vue'
+import ItemLista from '../components/ItemListaCliente/index.vue'
+import FormCliente from '../components/FormCadastro/Cliente.vue'
 
 export default {
     emits: ['cadastrar'],
