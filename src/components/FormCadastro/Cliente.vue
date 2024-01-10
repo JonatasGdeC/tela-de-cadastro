@@ -60,6 +60,5 @@ export default {
             </div>
         </form>
         <button class="form_button" @click="cadastrar">Cadastrar</button>
-
     </div>
 </template>

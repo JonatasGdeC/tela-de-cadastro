@@ -1,7 +1,7 @@
 <script>
 import './styles.scss'
-import ItemLista from '../components/ItemLista/Cliente.vue'
 import FormCliente from '../components/FormCadastro/Cliente.vue'
+import ItemListaClientes from '../components/ItemLista/Cliente.vue'
 
 export default {
     emits: ['cadastrar'],
@@ -31,7 +31,7 @@ export default {
     },
     components: {
         FormCliente,
-        ItemLista
+        ItemListaClientes
     },
 };
 </script>
@@ -41,7 +41,7 @@ export default {
     <FormCliente v-if="mostrarFormulario" @cadastrar="cadastrarCliente" />
     <ul class="list">
         <li class="list_item">
-            <ItemLista v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" />
+            <ItemListaClientes v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" />
         </li>
     </ul>
 </template>
