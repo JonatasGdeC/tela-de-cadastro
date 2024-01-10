@@ -1,6 +1,6 @@
 <script>
 import './styles.scss'
-import ItemLista from '../components/ItemListaCliente/index.vue'
+import ItemLista from '../components/ItemLista/Cliente.vue'
 import FormCliente from '../components/FormCadastro/Cliente.vue'
 
 export default {
@@ -9,8 +9,8 @@ export default {
     data() {
         return {
         mostrarFormulario: false,
-        clientes: [],
-        mensagemBTN: 'Cadastrar'
+        mensagemBTN: 'Cadastrar',
+        clientes: []
         };
     },
     methods: {

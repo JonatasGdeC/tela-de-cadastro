@@ -65,5 +65,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 8px;
+    margin: 32px 0;
+
+    &_item{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
 }
