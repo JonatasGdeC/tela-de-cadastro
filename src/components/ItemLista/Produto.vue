@@ -5,6 +5,12 @@ export default {
     props: {
         produto: Object,
     },
+
+    methods: {
+        excluirProduto() {
+            this.$emit('excluir-produto', this.produto);
+        }
+    }
 };
 </script>
 
@@ -24,6 +30,7 @@ export default {
                     <option>Não</option>
                 </select>
             </form>
+            <button @click="excluirProduto">Excluir</button>
         </div>
     </section>
 </template>
