@@ -16,20 +16,35 @@ export default {
     },
 
     mounted() {
-        // Recupera os dados do localStorage quando o componente é montado
-        const storedClientes = localStorage.getItem('clientes');
-        if (storedClientes) {
-            this.clientes = JSON.parse(storedClientes);
-        }
+        this.carregarDadosDoLocalStorage();
     },
 
     beforeUnmount() {
-        // Salva os dados no localStorage antes de desmontar o componente
-        const jsonString = JSON.stringify(this.clientes);
-        localStorage.setItem('clientes', jsonString);
+        this.salvarDadosNoLocalStorage();
     },
 
     methods: {
+        carregarDadosDoLocalStorage() {
+            const storedClientes = localStorage.getItem('clientes');
+            const storedClientesInativos = localStorage.getItem('clientesInativos');
+            
+            if (storedClientes) {
+                this.clientes = JSON.parse(storedClientes);
+            }
+
+            if (storedClientesInativos) {
+                this.clientesInativos = JSON.parse(storedClientesInativos);
+            }
+        },
+
+        salvarDadosNoLocalStorage() {
+            const jsonStringClientes = JSON.stringify(this.clientes);
+            const jsonStringClientesInativos = JSON.stringify(this.clientesInativos);
+
+            localStorage.setItem('clientes', jsonStringClientes);
+            localStorage.setItem('clientesInativos', jsonStringClientesInativos);
+        },
+
         btnPrincipal(){
             if(this.mostrarFormulario === false){
                 this.mostrarFormulario = true

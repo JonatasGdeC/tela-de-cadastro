@@ -16,20 +16,35 @@ export default {
     },
 
     mounted(){
-        // Recupera os dados do localStorage quando o componente é montado
-        const storedProdutos = localStorage.getItem('produtos');
-        if (storedProdutos) {
-            this.produtos = JSON.parse(storedProdutos);
-        }
+        this.carregarDadosDoLocalStorage();
     },
 
     beforeUnmount(){
-        // Salva os dados no localStorage antes de desmontar o componente
-        const jsonString = JSON.stringify(this.produtos);
-        localStorage.setItem('produtos', jsonString);
+        this.salvarDadosNoLocalStorage();
     },
 
     methods: {
+        carregarDadosDoLocalStorage() {
+            const storedProdutos = localStorage.getItem('produtos');
+            const storedProdutosInativos = localStorage.getItem('produtosInativos');
+            
+            if (storedProdutos) {
+                this.produtos = JSON.parse(storedProdutos);
+            }
+
+            if (storedProdutosInativos) {
+                this.produtosInativos = JSON.parse(storedProdutosInativos);
+            }
+        },
+
+        salvarDadosNoLocalStorage() {
+            const jsonStringProdutos = JSON.stringify(this.produtos);
+            const jsonStringProdutosInativos = JSON.stringify(this.produtosInativos);
+
+            localStorage.setItem('produtos', jsonStringProdutos);
+            localStorage.setItem('produtosInativos', jsonStringProdutosInativos);
+        },
+
         btnPrincipal(){
             if(this.mostrarFormulario === false){
                 this.mostrarFormulario = true
