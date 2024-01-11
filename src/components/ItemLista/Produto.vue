@@ -30,7 +30,7 @@ export default {
                     <option>Não</option>
                 </select>
             </form>
-            <button @click="excluirProduto">Excluir</button>
+            <button class="acoes_btnExcluir" @click="excluirProduto">Excluir</button>
         </div>
     </section>
 </template>

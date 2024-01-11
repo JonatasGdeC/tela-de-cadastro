@@ -67,9 +67,15 @@
     gap: 8px;
     margin: 32px 0;
 
+    &--inativos{
+        border-top: 1px solid blue;
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+
     &_item{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         gap: 15px;
     }
 }

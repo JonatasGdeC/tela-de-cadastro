@@ -10,7 +10,8 @@ export default {
         return {
         mostrarFormulario: false,
         mensagemBTN: 'Cadastrar',
-        clientes: []
+        clientes: [],
+        clientesInativos: [],
         };
     },
 
@@ -39,14 +40,37 @@ export default {
             }
         },
         cadastrarCliente(cliente) {
+            cliente.ativo = true;
             this.clientes.push(cliente);
             this.mostrarFormulario = false;
             this.mensagemBTN = 'Cadastrar'
-
             // Atualiza o localStorage após cadastrar um novo cliente
             const jsonString = JSON.stringify(this.clientes);
             localStorage.setItem('clientes', jsonString);
         },
+
+        alterarEstadoCliente(cliente){
+            cliente.ativo = !cliente.ativo;
+            // Move o cliente para a lista de clientes inativos, se estiver inativo
+            if (!cliente.ativo) {
+                const index = this.clientes.indexOf(cliente);
+                if (index !== -1) {
+                    this.clientes.splice(index, 1);
+                    this.clientesInativos.push(cliente);
+                }
+            } else {
+                // Move o cliente de volta para a lista de clientes ativos, se estiver ativo novamente
+                const index = this.clientesInativos.indexOf(cliente);
+                if (index !== -1) {
+                    this.clientesInativos.splice(index, 1);
+                    this.clientes.push(cliente);
+                }
+            }
+            // Atualiza o localStorage após alterar o estado do cliente
+            const jsonString = JSON.stringify(this.clientes);
+            localStorage.setItem('clientes', jsonString);
+        },
+        
         excluirClienteDoLocalStorage(cliente){
             // Encontrar e excluir o cliente da matriz no estado
             const index = this.clientes.indexOf(cliente);
@@ -71,7 +95,14 @@ export default {
     <FormCliente v-if="mostrarFormulario" @cadastrar="cadastrarCliente" />
     <ul class="list">
         <li class="list_item">
-            <ItemListaClientes v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" />
+            <ItemListaClientes v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
+        </li>
+    </ul>
+
+    <!-- Lista de Clientes Inativos -->
+    <ul class="list--inativos">
+        <li class="list_item">
+            <ItemListaClientes v-for="(cliente, index) in clientesInativos" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
         </li>
     </ul>
 </template>

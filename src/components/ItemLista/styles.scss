@@ -1,9 +1,15 @@
 .card{
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 56px;
     padding: 16px;
     border-radius: 16px;
     border: 1px solid blue;
+
+    &-inativo{
+        opacity: 0.7;
+    }
 }
 
 .informacoe{
@@ -13,5 +19,47 @@
 
     &_linha{
         display: flex;
+    }
+}
+
+.acoes{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &_status{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    &_btnEstado{
+        cursor: pointer;
+        background-color: green;
+        color: #fff;
+        font-weight: bold;
+        padding: 8px;
+        border: none;
+        border-radius: 8px;
+
+        &--desativado{
+            background-color: red;
+        }
+    }
+
+    &_btnExcluir{
+        background-color: red;
+        color:#fff;
+        padding: 8px;
+        font-size: 8px;
+        font-weight: bold;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: all ease 0.3s;
+
+        &:hover{
+            opacity: 0.7;
+        }
     }
 }

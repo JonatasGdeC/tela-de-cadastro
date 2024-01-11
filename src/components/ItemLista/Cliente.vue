@@ -9,6 +9,10 @@ export default {
     methods: {
         excluirCliente() {
             this.$emit('excluir-cliente', this.cliente);
+        },
+
+        alterarEstado() {
+            this.$emit('alterar-estado', this.cliente)
         }
     }
 };
@@ -16,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <section class="card">
+    <section class="card" :class="{ 'card-inativo': !cliente.ativo }">
         <div class="informacoe">
             <div class="informacoe_linha">
                 <p>Nome:</p>
@@ -36,28 +40,11 @@ export default {
             </div>
         </div>
     <div class="acoes">
-        <form>
+        <div class="acoes_status">
             <label>Ativo?</label>
-            <select>
-                <option>Sim</option>
-                <option>Não</option>
-            </select>
-        </form>
-        <form>
-            <label>Associar produto:</label>
-            <select>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-            </select>
-            <button type="button">Associar</button>
-        </form>
-        <ul>
-            <li>Produto A</li>
-        </ul>
-
-        <button @click="excluirCliente">Excluir Cliente</button>
+            <button @click="alterarEstado" class="acoes_btnEstado" :class="{'acoes_btnEstado--desativado': !cliente.ativo}">{{ cliente.ativo? 'Sim' : 'Não' }}</button>
+        </div>
+        <button class="acoes_btnExcluir" @click="excluirCliente">Excluir</button>
     </div>
     </section>
 </template>
