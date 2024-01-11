@@ -27,6 +27,12 @@ export default {
         class="header_buttons_button">
         Produtos
       </button>
+      <button
+      :class="{ 'header_buttons_button--active': selectedTab === 'clientesEprodutos' }"
+      @click="changeTab('clientesEprodutos')"
+      class="header_buttons_button">
+        Clientes e Produtos
+      </button>
     </div>
   </div>
 </template>

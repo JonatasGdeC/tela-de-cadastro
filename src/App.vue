@@ -2,6 +2,7 @@
 import Menu from './containers/Menu.vue'
 import Clientes from './containers/Clientes.vue'
 import Produtos from './containers/Produtos.vue'
+import ClientesEProdutos from './containers/ClientesEProdutos.vue'
 
 export default {
     data() {
@@ -18,6 +19,7 @@ export default {
         Menu,
         Clientes,
         Produtos,
+        ClientesEProdutos,
     },
 };
 
@@ -28,5 +30,6 @@ export default {
     <div class="container">
         <Clientes v-if="selectedTab === 'clientes'" />
         <Produtos v-else-if="selectedTab === 'produtos'" />
+        <ClientesEProdutos v-else-if="selectedTab === 'clientesEprodutos'" />
     </div>
 </template>

@@ -56,6 +56,7 @@ export default {
         },
 
         cadastrarProduto(produto) {
+            produto.ativo = true;
             this.produtos.push(produto);
             this.mostrarFormulario = false;
             this.mensagemBTN = 'Cadastrar'
