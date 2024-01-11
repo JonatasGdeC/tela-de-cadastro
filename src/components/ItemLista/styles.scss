@@ -27,6 +27,11 @@
     flex-direction: column;
     gap: 20px;
 
+    &_line{
+        flex-direction: row;
+        gap: 32px;
+    }
+
     &_status{
         display: flex;
         align-items: center;
@@ -54,7 +59,7 @@
         font-size: 8px;
         font-weight: bold;
         border: none;
-        border-radius: 16px;
+        border-radius: 8px;
         cursor: pointer;
         transition: all ease 0.3s;
 

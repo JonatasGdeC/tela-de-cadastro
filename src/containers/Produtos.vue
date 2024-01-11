@@ -10,7 +10,8 @@ export default {
         return{
             mostrarFormulario: false,
             mensagemBTN: 'Cadastrar',
-            produtos: []
+            produtos: [],
+            produtosInativos: [],
         }
     },
 
@@ -38,12 +39,35 @@ export default {
                 this.mensagemBTN = 'Cadastrar'
             }
         },
+
         cadastrarProduto(produto) {
             this.produtos.push(produto);
             this.mostrarFormulario = false;
             this.mensagemBTN = 'Cadastrar'
 
             // Atualiza o localStorage após cadastrar um novo produto
+            const jsonString = JSON.stringify(this.produtos);
+            localStorage.setItem('produtos', jsonString);
+        },
+
+        alterarEstadoProduto(produto){
+            produto.ativo = !produto.ativo;
+            // Move o produto para a lista de produtos inativos, se estiver inativo
+            if (!produto.ativo) {
+                const index = this.produtos.indexOf(produto);
+                if (index !== -1) {
+                    this.produtos.splice(index, 1);
+                    this.produtosInativos.push(produto);
+                }
+            } else {
+                // Move o produto de volta para a lista de produtos ativos, se estiver ativo novamente
+                const index = this.produtosInativos.indexOf(produto);
+                if (index !== -1) {
+                    this.produtosInativos.splice(index, 1);
+                    this.produtos.push(produto);
+                }
+            }
+            // Atualiza o localStorage após alterar o estado do produto
             const jsonString = JSON.stringify(this.produtos);
             localStorage.setItem('produtos', jsonString);
         },
@@ -72,7 +96,14 @@ export default {
     <FormProduto v-if="mostrarFormulario" @cadastrar="cadastrarProduto" />
     <ul class="list">
         <li class="list_item">
-            <ItemListaProdutos v-for="(produto, index) in produtos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" />
+            <ItemListaProdutos v-for="(produto, index) in produtos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto"/>
+        </li>
+    </ul>
+
+    <!-- Lista de produtos Inativos -->
+    <ul class="list--inativos">
+        <li class="list_item">
+            <ItemListaProdutos v-for="(produto, index) in produtosInativos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto" />
         </li>
     </ul>
 </template>
