@@ -108,16 +108,24 @@ export default {
 <template>
     <button @click="btnPrincipal" class="btn-cadastrar" :class="{'btn-cadastrar--cancelar': mensagemBTN === 'Cancelar'}">{{ mensagemBTN }}</button>
     <FormCliente v-if="mostrarFormulario" @cadastrar="cadastrarCliente" />
-    <ul class="list">
-        <li class="list_item">
-            <ItemListaClientes v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
-        </li>
-    </ul>
 
-    <!-- Lista de Clientes Inativos -->
-    <ul class="list--inativos">
-        <li class="list_item">
-            <ItemListaClientes v-for="(cliente, index) in clientesInativos" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
-        </li>
-    </ul>
+    <div v-if="clientes.length > 0 || clientesInativos.length > 0">
+        <ul class="list" v-if="clientes.length > 0">
+            <li class="list_item">
+                <ItemListaClientes v-for="(cliente, index) in clientes" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
+            </li>
+        </ul>
+
+        <div class="list_inativos" v-if="clientesInativos.length > 0">
+            <h3 class="list_title">Clientes Inativos</h3>
+            <ul class="list--inativos_card">
+                <li class="list_item">
+                    <ItemListaClientes v-for="(cliente, index) in clientesInativos" :key="index" :cliente="cliente" @excluir-cliente="excluirClienteDoLocalStorage" @alterar-estado="alterarEstadoCliente" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div v-else class="list_inexistente">
+        <h2>Não há clientes cadastrados</h2>
+    </div>
 </template>

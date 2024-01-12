@@ -42,7 +42,7 @@ export default {
     <div class="acoes">
         <div class="acoes_status">
             <label>Ativo?</label>
-            <button @click="alterarEstado" class="acoes_btnEstado" :class="{'acoes_btnEstado--desativado': !cliente.ativo}">{{ cliente.ativo? 'Sim' : 'Não' }}</button>
+            <button @click="alterarEstado" class="acoes_btnEstado" :class="{'acoes_btnEstado--desativado': !cliente.ativo}" title="Alterar status">{{ cliente.ativo? 'Sim' : 'Não' }}</button>
         </div>
         <button class="acoes_btnExcluir" @click="excluirCliente">Excluir</button>
     </div>

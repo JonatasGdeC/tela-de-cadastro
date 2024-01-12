@@ -29,7 +29,7 @@ export default {
             </li>
         </ul>
     </div>
-    <div v-else>
+    <div v-else class="list_inexistente">
         <h2>Não há clientes ativos</h2>
     </div>
 </template>

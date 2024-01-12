@@ -14,8 +14,11 @@ export default {
 
     mounted() {
         this.cliente.produtos = this.cliente.produtos || [];
-        const produtosAssociados = JSON.parse(localStorage.getItem(`produtos_cliente_${this.cliente.id}`));
-        this.cliente.produtos = produtosAssociados || [];
+        if (!this.cliente.produtos.length) {
+            const produtosAssociados = JSON.parse(localStorage.getItem(`produtos_cliente_${this.cliente.id}`));
+            this.cliente.produtos = produtosAssociados || [];
+        }
+
 },
 
     methods: {
@@ -23,10 +26,7 @@ export default {
             this.cliente.produtos = this.cliente.produtos || [];
 
             if (this.produtoSelecionado) {
-                // Adiciona o produto selecionado à lista de produtos associados ao cliente
                 this.cliente.produtos.push({ nome: this.produtoSelecionado });
-                
-                // Atualiza o localStorage após adicionar o produto
                 this.atualizarLocalStorage();
             }
             console.log('Produto selecionado:', this.produtoSelecionado);
@@ -36,6 +36,7 @@ export default {
             console.log('Produtos associados:', this.cliente.produtos);
             localStorage.setItem(`produtos_cliente_${this.cliente.id}`, JSON.stringify(this.cliente.produtos));
         },
+        
     }
 }
 

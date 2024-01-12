@@ -110,16 +110,24 @@ export default {
 <template>
     <button @click="btnPrincipal" class="btn-cadastrar" :class="{'btn-cadastrar--cancelar': mensagemBTN === 'Cancelar'}">{{ mensagemBTN }}</button>
     <FormProduto v-if="mostrarFormulario" @cadastrar="cadastrarProduto" />
-    <ul class="list">
-        <li class="list_item">
-            <ItemListaProdutos v-for="(produto, index) in produtos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto"/>
-        </li>
-    </ul>
 
-    <!-- Lista de produtos Inativos -->
-    <ul class="list--inativos">
-        <li class="list_item">
-            <ItemListaProdutos v-for="(produto, index) in produtosInativos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto" />
-        </li>
-    </ul>
+    <div v-if="produtos.length > 0 || produtosInativos.length > 0">
+        <ul class="list">
+            <li class="list_item">
+                <ItemListaProdutos v-for="(produto, index) in produtos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto"/>
+            </li>
+        </ul>
+    
+        <div class="list_inativos" v-if="produtosInativos.length > 0">
+            <h3 class="list_title">Produtos Desativados</h3>
+            <ul class="list--inativos_card">
+                <li class="list_item">
+                    <ItemListaProdutos v-for="(produto, index) in produtosInativos" :key="index" :produto="produto" @excluir-produto="excluirProdutoDoLocalStorage" @alterar-estado="alterarEstadoProduto" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div v-else class="list_inexistente">
+        <h2>Não há produtos cadastrados</h2>
+    </div>
 </template>

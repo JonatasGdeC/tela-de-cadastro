@@ -16,6 +16,13 @@ export default {
   <div class="header">
     <div class="header_buttons">
       <button
+      :class="{ 'header_buttons_button--active': selectedTab === 'clientesEprodutos' }"
+      @click="changeTab('clientesEprodutos')"
+      class="header_buttons_button"
+      title="Associação de cliente com produto">
+        Clientes e Produtos
+      </button>
+      <button
         :class="{ 'header_buttons_button--active': selectedTab === 'clientes' }"
         @click="changeTab('clientes')"
         class="header_buttons_button"
@@ -28,13 +35,6 @@ export default {
         class="header_buttons_button"
         title="Cadastro e Lista de Produtos">
         Produtos
-      </button>
-      <button
-      :class="{ 'header_buttons_button--active': selectedTab === 'clientesEprodutos' }"
-      @click="changeTab('clientesEprodutos')"
-      class="header_buttons_button"
-      title="Associação de cliente com produto">
-        Clientes e Produtos
       </button>
     </div>
   </div>

@@ -17,6 +17,7 @@ export default {
                 cpf: this.cpf,
                 telefone: this.telefone,
                 email: this.email,
+                produtos: [],
             };
 
             const verificando = () =>{

@@ -7,7 +7,7 @@ import ClientesEProdutos from './containers/ClientesEProdutos.vue'
 export default {
     data() {
     return {
-        selectedTab: 'clientes',
+        selectedTab: 'clientesEprodutos',
     };
     },
     methods: {
@@ -28,8 +28,8 @@ export default {
 <template>
     <Menu :selectedTab="selectedTab" @changeTab="changeTab" />
     <div class="container">
-        <Clientes v-if="selectedTab === 'clientes'" />
+        <ClientesEProdutos v-if="selectedTab === 'clientesEprodutos'" />
+        <Clientes v-else-if="selectedTab === 'clientes'" />
         <Produtos v-else-if="selectedTab === 'produtos'" />
-        <ClientesEProdutos v-else-if="selectedTab === 'clientesEprodutos'" />
     </div>
 </template>
