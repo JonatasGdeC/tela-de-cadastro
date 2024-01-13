@@ -33,7 +33,20 @@
                 background-color: blue;
                 color: #fff;
             }
+
+            @media(max-width: 536px){
+                padding: 8px;
+            }
         }
+
+        @media(max-width: 536px){
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+
+    @media(max-width: 1024px){
+        padding: 16px;
     }
 }
 

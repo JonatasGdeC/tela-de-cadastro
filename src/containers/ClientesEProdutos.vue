@@ -8,28 +8,30 @@ export default {
     },
     data() {
         return {
-        // Inicialize clientesAtivos com a lista armazenada no localStorage ou um array vazio
-        clientes: JSON.parse(localStorage.getItem('clientes')) || [],
-        produtos: JSON.parse(localStorage.getItem('produtos')) || []
+            clientes: JSON.parse(localStorage.getItem('clientes')),
+            produtos: JSON.parse(localStorage.getItem('produtos'))
         };
     },
-    // Atualize a lista de clientes ativos no localStorage ao montar o componente
     mounted() {
-        this.clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-        this.produtos = JSON.parse(localStorage.getItem('produtos')) || []
+        this.clientes = JSON.parse(localStorage.getItem('clientes'));
+        this.produtos = JSON.parse(localStorage.getItem('produtos'));
     },
 };
 </script>
 
 <template>
-    <div v-if="clientes.length > 0">
+    <div class="list_inexistente" v-if="clientes.length === 0">
+        <h2>Não há clientes ativos</h2>
+    </div>
+    <div class="list_inexistente" v-else-if="produtos.length === 0">
+        <h2>Não há produtos ativos</h2>
+    </div>
+    <div v-else>
         <ul class="list">
             <li class="list_item">
-                <ItemListaClienteEProduto v-for="cliente in clientes" :key="cliente.id" :cliente="cliente" :produtos="produtos"/>
+                <ItemListaClienteEProduto v-for="cliente in clientes" :key="cliente.nome" :cliente="cliente" :produtos="produtos"/>
             </li>
         </ul>
     </div>
-    <div v-else class="list_inexistente">
-        <h2>Não há clientes ativos</h2>
-    </div>
+    
 </template>

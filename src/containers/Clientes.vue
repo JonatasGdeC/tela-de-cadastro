@@ -87,15 +87,17 @@ export default {
         },
         
         excluirClienteDoLocalStorage(cliente){
-            // Encontrar e excluir o cliente da matriz no estado
             const index = this.clientes.indexOf(cliente);
-            if (index !== -1) {
-                this.clientes.splice(index, 1);
 
-                // Atualizar o localStorage após excluir o cliente
+            if(this.clientes.includes(cliente)){
+                this.clientes.splice(index, 1);
                 const jsonString = JSON.stringify(this.clientes);
                 localStorage.setItem('clientes', jsonString);
-            }
+            } else {
+                this.clientesInativos.splice(index, 1);
+                const jsonString = JSON.stringify(this.clientesInativos);
+                localStorage.setItem('clientesInativos', jsonString);
+        }
         }
     },
     components: {
