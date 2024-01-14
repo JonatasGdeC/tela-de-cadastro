@@ -1,109 +1,109 @@
 //Estilos do Menu
-.header{
-    text-align: center;
-    padding: 32px 0;
-    background-color: rgb(177, 212, 231);
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.header {
+  text-align: center;
+  padding: 32px 0;
+  background-color: rgb(177, 212, 231);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
-    &_buttons{
-        display: flex;
-        justify-content: center;
-        gap: 56px;
+  &_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
 
-        &_button{
-            background-color: #fff;
-            color: blue;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 16px;
-            border: 1px solid transparent;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all ease 0.3s;
+    &_button {
+      background-color: #fff;
+      color: blue;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 16px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all ease 0.3s;
 
-            &:hover{
-                border-color: blue;
-                opacity: 0.8;
-            }
+      &:hover {
+        border-color: blue;
+        opacity: 0.8;
+      }
 
-            &--active{
-                background-color: blue;
-                color: #fff;
-            }
+      &--active {
+        background-color: blue;
+        color: #fff;
+      }
 
-            @media(max-width: 536px){
-                padding: 8px;
-            }
-        }
-
-        @media(max-width: 536px){
-            flex-direction: column;
-            gap: 16px;
-        }
+      @media (max-width: 536px) {
+        padding: 8px;
+      }
     }
 
-    @media(max-width: 1024px){
-        padding: 16px;
+    @media (max-width: 536px) {
+      flex-direction: column;
+      gap: 16px;
     }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 16px;
+  }
 }
 
 //Containers de Cliente e Produto
-.btn-cadastrar{
-    width: 100%;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 8px 0;
-    background-color: blue;
+.btn-cadastrar {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px 0;
+  background-color: blue;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &--cancelar {
+    background-color: rgb(252, 63, 63);
     color: #fff;
-    cursor: pointer;
-    transition: all ease 0.3s;
-
-    &:hover{
-        opacity: 0.7;
-    }
-
-    &--cancelar{
-        background-color: rgb(252, 63, 63);
-        color: #fff;
-    }
+  }
 }
 
-.list{
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 32px 0;
+
+  &_inativos {
+    border-top: 1px solid blue;
+    padding-top: 32px;
+  }
+
+  &_title {
+    text-align: center;
+    color: rgb(195, 0, 0);
+  }
+
+  &--inativos_card {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+
+  &_item {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 32px 0;
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
 
-    &_inativos{
-        border-top: 1px solid blue;
-        padding-top: 32px;
-    }
-
-    &_title{
-        text-align: center;
-        color: rgb(195, 0, 0);
-    }
-
-    &--inativos_card{
-        margin-top: 16px;
-        padding-top: 16px;
-    }
-
-    &_item{
-        display: flex;
-        flex-direction: column-reverse;
-        gap: 15px;
-    }
-
-    &_inexistente{
-        text-align: center;
-        margin-top: 32px;
-        color: red;
-    }
+  &_inexistente {
+    text-align: center;
+    margin-top: 32px;
+    color: red;
+  }
 }
