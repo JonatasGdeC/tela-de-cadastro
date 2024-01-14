@@ -8,8 +8,8 @@ export default {
     },
     data() {
         return {
-            clientes: JSON.parse(localStorage.getItem('clientes')),
-            produtos: JSON.parse(localStorage.getItem('produtos'))
+            clientes: [],
+            produtos: [],
         };
     },
     mounted() {

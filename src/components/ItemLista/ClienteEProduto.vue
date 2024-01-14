@@ -18,6 +18,11 @@ export default {
             const produtosAssociados = JSON.parse(localStorage.getItem(`produtos_cliente_${this.cliente.nome}`));
             this.cliente.produtos = produtosAssociados || [];
         }
+
+        const produtosAssociados = JSON.parse(localStorage.getItem(`produtos_cliente_${this.cliente.nome}`));
+        if (produtosAssociados) {
+            this.cliente.produtos = produtosAssociados;
+        } 
 },
 
     methods: {
@@ -39,12 +44,11 @@ export default {
             const indexToRemove = this.cliente.produtos.findIndex(produto => produto.nome === produto.nome);
             if (indexToRemove !== -1) {
                 this.cliente.produtos.splice(indexToRemove, 1);
-                console.log("Produto removido com sucesso!");
+                this.atualizarLocalStorage();
             }
         },
 
         atualizarLocalStorage() {
-            console.log('Produtos associados:', this.cliente.produtos);
             localStorage.setItem(`produtos_cliente_${this.cliente.nome}`, JSON.stringify(this.cliente.produtos));
         },
         

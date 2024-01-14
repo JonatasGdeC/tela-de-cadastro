@@ -1,4 +1,5 @@
 <script>
+import VueMask from 'vue-the-mask'
 import './styles.scss'
 
 export default {
@@ -9,6 +10,9 @@ export default {
             telefone: '',
             email: '',
             };
+    },
+    directives: {
+        mask: VueMask.directive
     },
     methods: {
         cadastrar() {
@@ -42,11 +46,11 @@ export default {
             </div>
             <div class="form_campo">
                 <label class="form_campo_nome" for="cpf">CPF:</label>
-                <input class="form_campo_input" v-model="cpf" id="cpf" type="number" placeholder="XXX.XXX.XXX-XX">
+                <input class="form_campo_input" v-model="cpf" id="cpf" type="number" placeholder="XXX.XXX.XXX-XX" v-mask="'###.###.###-##'">
             </div>
             <div class="form_campo">
                 <label class="form_campo_nome" for="contato">Contato:</label>
-                <input class="form_campo_input" v-model="telefone" id="contato" type="tel" placeholder="(XX) XXXXX-XXXX" maxlength="11">
+                <input class="form_campo_input" v-model="telefone" id="contato" type="tel" placeholder="(XX) XXXXX-XXXX" maxlength="11" v-mask="'(##) ####-####'">
             </div>
             <div class="form_campo">
                 <label class="form_campo_nome" for="email">Email:</label>

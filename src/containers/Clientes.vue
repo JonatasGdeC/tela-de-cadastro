@@ -87,17 +87,20 @@ export default {
         },
         
         excluirClienteDoLocalStorage(cliente){
-            const index = this.clientes.indexOf(cliente);
+            const confirmacao = window.confirm("Deseja realmente excluir este cliente?");
 
-            if(this.clientes.includes(cliente)){
-                this.clientes.splice(index, 1);
-                const jsonString = JSON.stringify(this.clientes);
-                localStorage.setItem('clientes', jsonString);
-            } else {
-                this.clientesInativos.splice(index, 1);
-                const jsonString = JSON.stringify(this.clientesInativos);
-                localStorage.setItem('clientesInativos', jsonString);
-        }
+            if(confirmacao){
+                const index = this.clientes.indexOf(cliente);
+                if(this.clientes.includes(cliente)){
+                    this.clientes.splice(index, 1);
+                    const jsonString = JSON.stringify(this.clientes);
+                    localStorage.setItem('clientes', jsonString);
+                } else {
+                    this.clientesInativos.splice(index, 1);
+                    const jsonString = JSON.stringify(this.clientesInativos);
+                    localStorage.setItem('clientesInativos', jsonString);
+            }
+            }
         }
     },
     components: {

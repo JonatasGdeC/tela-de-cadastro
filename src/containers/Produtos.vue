@@ -85,15 +85,19 @@ export default {
         },
 
         excluirProdutoDoLocalStorage(produto){
-            const index = this.produtos.indexOf(produto);
-            if(this.produtos.includes(produto)){            
-                this.produtos.splice(index, 1);
-                const jsonString = JSON.stringify(this.produtos);
-                localStorage.setItem('produtos', jsonString);
-            } else {
-                this.produtosInativos.splice(index, 1);
-                const jsonString = JSON.stringify(this.produtosInativos);
-                localStorage.setItem('produtosInativos', jsonString);
+            const confirmacao = window.confirm("Deseja realmente excluir este produto?");
+
+            if(confirmacao){
+                const index = this.produtos.indexOf(produto);
+                if(this.produtos.includes(produto)){            
+                    this.produtos.splice(index, 1);
+                    const jsonString = JSON.stringify(this.produtos);
+                    localStorage.setItem('produtos', jsonString);
+                } else {
+                    this.produtosInativos.splice(index, 1);
+                    const jsonString = JSON.stringify(this.produtosInativos);
+                    localStorage.setItem('produtosInativos', jsonString);
+                }
             }
         }
     },
