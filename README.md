@@ -53,10 +53,12 @@ Porém, caso opte por rodar o projeto em sua máquina, você deve seguir os segu
 2. Abra essa pasta no VSCode e crie um novo terminal integrado do VSCode.
 3. No terminal, digite os seguintes código:
 <br>
+
 ```sh
 git init
 ```
 <br>
+
 ```sh
 git clone https://github.com/JonatasGdeC/tela-de-cadastro.git
 ```
@@ -66,6 +68,7 @@ Aqui você estará criando um clone do meu projeto em sua máquina. Após isso, 
 
 4. Abra essa pasta no VSCode, crie um novo terminal e digite o seguinte código para a instalação das depedências do node.js:
 <br>
+
 ```sh
 npm install
 ```
