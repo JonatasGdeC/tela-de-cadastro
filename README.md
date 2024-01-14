@@ -41,11 +41,11 @@ Para estilizar o código, foi requisitado o uso de um pré-processador CSS, leva
 Para assegurar a uniformidade nos códigos, foram empregadas duas ferramentas cruciais: EditorConfig e Prettier. O EditorConfig estabelece padrões de estilo entre diferentes editores, promovendo consistência em ambientes de desenvolvimento colaborativo. Complementarmente, o Prettier automatiza a formatação do código, eliminando controvérsias sobre estilos e garantindo uma apresentação uniforme, o que facilita a manutenção e reforça a legibilidade do código-fonte. A sinergia entre o EditorConfig e o Prettier fortalece a eficiência e coesão no ambiente de desenvolvimento, proporcionando benefícios tangíveis à colaboração e à manutenção do código.
 <br>
 
-Por último, para facilitar o acesso e avaliação do aplicativo, o projeto foi implantado na plataforma gratuita Vercel. Isso não apenas proporciona uma visualização prática do aplicativo, mas também permite a avaliação de seu desempenho em um ambiente real. O [link do site](https://tela-de-cadastro-pi.vercel.app/) direciona diretamente para a aplicação online, proporcionando uma experiência conveniente para os usuários avaliarem o projeto de forma eficaz.
+Por último, para facilitar o acesso e avaliação do aplicativo, o projeto foi implantado na plataforma gratuita Vercel. Isso não apenas proporciona uma visualização prática do aplicativo, mas também permite a avaliação de seu desempenho em um ambiente real. Esse [link](https://tela-de-cadastro-pi.vercel.app/) direciona diretamente para a aplicação online, proporcionando uma experiência conveniente para os usuários avaliarem o projeto de forma eficaz.
 
 # Para rodar o projeto
 
-Como foi citado no último parágrafo do texto acima, foi realizado o deploy do projeto na vercel.Link: [Tela de cadastro](https://tela-de-cadastro-pi.vercel.app/)
+Como foi citado no último parágrafo do texto acima, foi realizado o deploy do projeto na vercel. [Link de acesso](https://tela-de-cadastro-pi.vercel.app/).
 <br>
 Porém, caso opte por rodar o projeto em sua máquina, você deve seguir os seguintes passos:
 
@@ -64,6 +64,7 @@ git clone https://github.com/JonatasGdeC/tela-de-cadastro.git
 ```
 <br>
 Aqui você estará criando um clone do meu projeto em sua máquina. Após isso, muito provável que irá criar uma nova pasta que irá conter o conteúdo do repositório.
+
 <br>
 
 4. Abra essa pasta no VSCode, crie um novo terminal e digite o seguinte código para a instalação das depedências do node.js:
