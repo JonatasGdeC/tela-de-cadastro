@@ -59,14 +59,12 @@ export default {
             this.clientes.push(cliente);
             this.mostrarFormulario = false;
             this.mensagemBTN = 'Cadastrar'
-            // Atualiza o localStorage após cadastrar um novo cliente
             const jsonString = JSON.stringify(this.clientes);
             localStorage.setItem('clientes', jsonString);
         },
 
         alterarEstadoCliente(cliente){
             cliente.ativo = !cliente.ativo;
-            // Move o cliente para a lista de clientes inativos, se estiver inativo
             if (!cliente.ativo) {
                 const index = this.clientes.indexOf(cliente);
                 if (index !== -1) {
@@ -74,14 +72,12 @@ export default {
                     this.clientesInativos.push(cliente);
                 }
             } else {
-                // Move o cliente de volta para a lista de clientes ativos, se estiver ativo novamente
                 const index = this.clientesInativos.indexOf(cliente);
                 if (index !== -1) {
                     this.clientesInativos.splice(index, 1);
                     this.clientes.push(cliente);
                 }
             }
-            // Atualiza o localStorage após alterar o estado do cliente
             const jsonString = JSON.stringify(this.clientes);
             localStorage.setItem('clientes', jsonString);
         },
@@ -91,6 +87,7 @@ export default {
 
             if(confirmacao){
                 const index = this.clientes.indexOf(cliente);
+                localStorage.removeItem(`produtos_cliente_${cliente.nome}`)
                 if(this.clientes.includes(cliente)){
                     this.clientes.splice(index, 1);
                     const jsonString = JSON.stringify(this.clientes);
@@ -99,7 +96,7 @@ export default {
                     this.clientesInativos.splice(index, 1);
                     const jsonString = JSON.stringify(this.clientesInativos);
                     localStorage.setItem('clientesInativos', jsonString);
-            }
+                }
             }
         }
     },
