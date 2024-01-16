@@ -1,26 +1,26 @@
 # Sobre o projeto
 
-O projeto tem como objetivo realizar a associação de clientes com seus produtos. Para isso, foi criado três telas, cada uma sendo acessada por botões encontrados na parte superior do site. São eles:
+O projeto visa disponibilizar para a área comercial um cadastro de clientes e uma forma de associar os produtos disponíveis para utilização por esses clientes em um site de serviços. Para isso, foram criadas três telas, cada uma acessada por botões localizados na parte superior do site. São eles:
 
 * ### Clientes e Produtos:
 ![Tela de cliente e produtos](./public/images/tela_cliente_produto.png)
 Esta tela é reponsável por realizar as associações de clientes com os produtos. Para realizar essa associação, o usuário deve selecionar o produto na caixa de seleção do campo esquerdo do card e clicar no botão "Adicionar Produto".
 <br>
-Obs.: A associação só é possível caso exista no mínimo um cliente e um produto cadastrado.
+**Obs.**: A associação só é possível caso exista no mínimo um cliente e um produto cadastrado.
 <br>
 <br>
 * ### Clientes:
 ![Tela de lista e cadastro de clientes](./public/images/tela_cliente.png)
 Nesta tela é realizado o cadastro de clientes, no botão "Cadastrar", e a listagem de clientes ativos e inativos.
 <br>
-Obs.: Quando é realizado o cadastro de um cliente, ele surge na lista como cliente ativo, sendo possível alterar esse status o que gera uma segunda lista de clientes inativos.
+**Obs.**: Quando é realizado o cadastro de um cliente, ele surge na lista como cliente ativo, sendo possível alterar esse status o que gera uma segunda lista de clientes inativos.
 <br>
 <br>
 * ### Produtos:
 ![Tela de lista e cadastro de produtos](./public//images/tela_produtos.png)
 Nesta tela é realizado o cadastro de produtos, no botão "Cadastrar", e a listagem de produtos ativos e inativos.
 <br>
-Obs.: Seguindo a mesma lógica da tela de clientes, quando é realizado o cadastro de um novo produto, ele surge na lista como produto ativo, sendo possível alterar esse status o que gera uma segunda lista de produtos inativos.
+**Obs.**: Seguindo a mesma lógica da tela de clientes, quando é realizado o cadastro de um novo produto, ele surge na lista como produto ativo, sendo possível alterar esse status o que gera uma segunda lista de produtos inativos.
 <br>
 <br>
 
