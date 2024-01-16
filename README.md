@@ -66,7 +66,7 @@ git clone https://github.com/JonatasGdeC/tela-de-cadastro.git
 Aqui você estará criando um clone do meu projeto em sua máquina. Após isso, muito provável que irá criar uma nova pasta que irá conter o conteúdo do repositório.
 
 <br>
-
+<br>
 4. Abra essa pasta no VSCode, crie um novo terminal e digite o seguinte código para a instalação das depedências do node.js:
 <br>
 
@@ -76,7 +76,7 @@ npm install
 <br>
 Com isso, será instalado a pasta node_modules que contém todas as depedências necessárias para a execução do código
 <br>
-
+<br>
 5. Para executar o projeto, digite no terminal o seguinte código:
 ```sh
 npm run dev
