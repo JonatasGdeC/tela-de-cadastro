@@ -78,6 +78,9 @@ Com isso, será instalado a pasta node_modules que contém todas as depedências
 <br>
 <br>
 5. Para executar o projeto, digite no terminal o seguinte código:
+<br>
+
 ```sh
 npm run dev
 ```
+
